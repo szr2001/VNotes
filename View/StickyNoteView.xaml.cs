@@ -29,5 +29,15 @@ namespace VNotes.View
             DataContext = Model;
             InitializeComponent();
         }
+
+        private void ShowNoteOptions(object sender, MouseEventArgs e)
+        {
+            NoteOptions.Visibility = Visibility.Visible;
+        }
+
+        private void HideNoteOptions(object sender, MouseEventArgs e)
+        {
+            NoteOptions.Visibility = Visibility.Hidden;
+        }
     }
 }

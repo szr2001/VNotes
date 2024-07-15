@@ -9,6 +9,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Images\crumpled.png" />
+    <None Remove="Assets\Images\eraser.png" />
+    <None Remove="Assets\Images\pencil.png" />
     <None Remove="Assets\Images\StickyNote1.png" />
     <None Remove="Assets\Images\StickyNote2.png" />
     <None Remove="Assets\Images\StickyNote3.png" />
@@ -18,24 +21,33 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Assets\Images\StickyNote1.png">
+    <Resource Include="Assets\Images\crumpled.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Images\StickyNote2.png">
+    </Resource>
+    <Resource Include="Assets\Images\eraser.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Images\StickyNote3.png">
+    </Resource>
+    <Resource Include="Assets\Images\pencil.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Images\StickyNoteBlockNoteHover.png">
+    </Resource>
+    <Resource Include="Assets\Images\StickyNote1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Images\StickyNoteBlock.png">
+    </Resource>
+    <Resource Include="Assets\Images\StickyNote2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Images\StickyNoteBlockNote.png">
+    </Resource>
+    <Resource Include="Assets\Images\StickyNote3.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </Resource>
+    <Resource Include="Assets\Images\StickyNoteBlockNoteHover.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Images\StickyNoteBlock.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Images\StickyNoteBlockNote.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>

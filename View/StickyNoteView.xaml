@@ -8,17 +8,33 @@
         AllowsTransparency="True"
         Background="Transparent"
         WindowStyle="None"
-        Title="StickyNote" Height="300" Width="300">
-    <Grid>
+        Title="StickyNote" Height="300" Width="330">
+    <Grid MouseEnter="ShowNoteOptions" MouseLeave="HideNoteOptions">
         <Grid.ColumnDefinitions>
-            
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             
         </Grid.RowDefinitions>
-        <Image Grid.Column="0" Grid.Row="0" Source="/Assets/Images/StickyNote1.png" />
-        <InkCanvas Grid.Column="0" Grid.Row="0" Background="Transparent" Width="260" Height="260" Margin="0,0,15,15" Strokes="{Binding NoteData.StickyDrawing}">
+        <Image Grid.Column="0" Grid.Row="0" Source="{Binding NoteData.StickyImagePath}" />
+        <InkCanvas Grid.Column="0" Grid.Row="0" Background="Transparent" Width="260" Height="260" Margin="0,0,15,15" 
+                   Strokes="{Binding NoteData.StickyDrawing}">
             
         </InkCanvas>
+        <StackPanel x:Name="NoteOptions" Grid.Column="1" Margin="-20,0,0,0" Visibility="Visible">
+            <Button Background="Transparent" BorderThickness="0" Width="45" Height="45" 
+                    Template="{Binding Source={StaticResource InvisibleBtn}}" Style="{Binding Source={StaticResource ButtonStyle}}">
+                <Image Source="/Assets/Images/pencil.png"/>
+            </Button>
+            <Button Background="Transparent" BorderThickness="0" Width="45" Height="45"
+                    Template="{Binding Source={StaticResource InvisibleBtn}}" Style="{Binding Source={StaticResource ButtonStyle}}">
+                <Image Source="/Assets/Images/eraser.png"/>
+            </Button>
+            <Button Background="Transparent" BorderThickness="0" Width="45" Height="45"
+                    Template="{Binding Source={StaticResource InvisibleBtn}}" Style="{Binding Source={StaticResource ButtonStyle}}">
+                <Image Source="/Assets/Images/crumpled.png"/>
+            </Button>
+        </StackPanel>
     </Grid>
 </Window>
