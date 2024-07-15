@@ -1,0 +1,24 @@
+﻿<Window x:Class="VNotes.View.StickyNoteView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VNotes.View"
+        mc:Ignorable="d"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStyle="None"
+        Title="StickyNote" Height="300" Width="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            
+        </Grid.RowDefinitions>
+        <Image Grid.Column="0" Grid.Row="0" Source="/Assets/Images/StickyNote1.png" />
+        <InkCanvas Grid.Column="0" Grid.Row="0" Background="Transparent" Width="260" Height="260" Margin="0,0,15,15" Strokes="{Binding NoteData.StickyDrawing}">
+            
+        </InkCanvas>
+    </Grid>
+</Window>

@@ -8,4 +8,38 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Assets\Images\StickyNote1.png" />
+    <None Remove="Assets\Images\StickyNote2.png" />
+    <None Remove="Assets\Images\StickyNote3.png" />
+    <None Remove="Assets\Images\StickyNoteBlock.png" />
+    <None Remove="Assets\Images\StickyNoteBlockNote.png" />
+    <None Remove="Assets\Images\StickyNoteBlockNoteHover.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\Images\StickyNote1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\StickyNote2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\StickyNote3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\StickyNoteBlockNoteHover.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\StickyNoteBlock.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\StickyNoteBlockNote.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Assets\Sounds\" />
+  </ItemGroup>
+
 </Project>
