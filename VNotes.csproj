@@ -9,8 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Fonts\A little sunshine.ttf" />
     <None Remove="Assets\Images\crumpled.png" />
     <None Remove="Assets\Images\eraser.png" />
+    <None Remove="Assets\Images\move.png" />
     <None Remove="Assets\Images\pencil.png" />
     <None Remove="Assets\Images\StickyNote1.png" />
     <None Remove="Assets\Images\StickyNote2.png" />
@@ -18,13 +20,20 @@
     <None Remove="Assets\Images\StickyNoteBlock.png" />
     <None Remove="Assets\Images\StickyNoteBlockNote.png" />
     <None Remove="Assets\Images\StickyNoteBlockNoteHover.png" />
+    <None Remove="Assets\Images\text.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Assets\Fonts\A little sunshine.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Assets\Images\crumpled.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Assets\Images\eraser.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Images\move.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Assets\Images\pencil.png">
@@ -48,10 +57,15 @@
     <Resource Include="Assets\Images\StickyNoteBlockNote.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Assets\Images\text.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Assets\Sounds\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Enums\" />
   </ItemGroup>
 
 </Project>
