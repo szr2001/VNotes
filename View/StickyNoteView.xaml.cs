@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,6 +27,11 @@ namespace VNotes.View
             InkCanvas canvas = new();
 
             Model = model;
+            if(new Vector2(model.NoteData.StickyPositionX, model.NoteData.StickyPositionY) != Vector2.Zero)
+            {
+                Top = model.NoteData.StickyPositionY;
+                Left = model.NoteData.StickyPositionX;
+            }
             DataContext = Model;
             InitializeComponent();
         }
@@ -42,36 +48,32 @@ namespace VNotes.View
 
         private void SwitchPencil(object sender, RoutedEventArgs e)
         {
-            DrawingArea.IsEnabled = true;
             DrawingArea.IsHitTestVisible = true;
             DrawingArea.EditingMode = InkCanvasEditingMode.Ink;
 
-            TextArea.IsEnabled = false;
             TextArea.IsHitTestVisible = false;
         }
 
         private void SwitchEraser(object sender, RoutedEventArgs e)
         {
-            DrawingArea.IsEnabled = true;
             DrawingArea.IsHitTestVisible = true;
             DrawingArea.EditingMode = InkCanvasEditingMode.EraseByPoint;
 
-            TextArea.IsEnabled = false;
             TextArea.IsHitTestVisible = false;
         }
 
         private void SwitchText(object sender, RoutedEventArgs e)
         {
-            DrawingArea.IsEnabled = false;
             DrawingArea.IsHitTestVisible = false;
 
-            TextArea.IsEnabled = true;
             TextArea.IsHitTestVisible = true;
         }
 
         private void MoveNote(object sender, MouseButtonEventArgs e)
         {
             DragMove();
+            Model.NoteData.StickyPositionX = (float)Left;
+            Model.NoteData.StickyPositionY = (float)Top;
         }
 
         private void TextAreaChanged(object sender, TextChangedEventArgs e)

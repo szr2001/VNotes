@@ -18,7 +18,8 @@ namespace VNotes
         {
             AllocConsole();
             base.OnStartup(e);
-            StickyNotesHandler NotesHandler = new();
+            BinaryFormatterSaveLoad SaveLoad = new(@$"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\VNotes");
+            StickyNotesHandler NotesHandler = new(SaveLoad);
             
             StickyNotesBlockVM StickyBlockVM = new(NotesHandler);
             StickyNotesBlockView Stickyblock = new(StickyBlockVM);

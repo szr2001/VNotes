@@ -64,7 +64,6 @@
 
   <ItemGroup>
     <Folder Include="Assets\Sounds\" />
-    <Folder Include="Interfaces\" />
     <Folder Include="Enums\" />
   </ItemGroup>
 
