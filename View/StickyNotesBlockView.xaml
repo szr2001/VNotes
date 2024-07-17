@@ -26,6 +26,13 @@
                 </Style>
             </Image.Style>
         </Image>
+        <Button Grid.Column="0" Margin="25,5,0,0" Command="{Binding OnCloseApp}" Grid.Row="1" Style="{Binding Source= {StaticResource ButtonStyle}}" Template="{Binding Source= {StaticResource InvisibleBtn}}" Click="CloseButtonPress">
+            <TextBlock Text="X" FontWeight="Bold" FontSize="25" Foreground="DarkBlue" FontFamily="/Assets/Fonts/#A little sunshine"/>
+        </Button>
+        <Button Grid.Column="2" Grid.Row="1" Margin="-5" Style="{Binding Source= {StaticResource ButtonStyle}}" Template="{Binding Source= {StaticResource InvisibleBtn}}" Click="MinimiseApp">
+            <TextBlock Text="-" FontWeight="Bold" FontSize="45" Margin="0,-5,0,0" Foreground="DarkBlue" FontFamily="/Assets/Fonts/#A little sunshine"/>
+        </Button>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition Width="205"/>

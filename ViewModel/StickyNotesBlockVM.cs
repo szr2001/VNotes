@@ -11,6 +11,7 @@ namespace VNotes.ViewModel
     public class StickyNotesBlockVM: INotifyPropertyChanged
     {
         public ICommand OnSpawnStickyNote { get; set; }
+        public ICommand OnCloseApp { get; set; }
 
         private Visibility _stickyNoteVisibility = Visibility.Visible;
         public Visibility AreThereStickyNotesLeft 
@@ -38,6 +39,7 @@ namespace VNotes.ViewModel
         public StickyNotesBlockVM(StickyNotesHandler stickyNotesHandler)
         {
             OnSpawnStickyNote = new RelayCommand(SpawnStickyNote);
+            OnCloseApp = new RelayCommand(CloseApp);
             _stickyNotesHandler = stickyNotesHandler;
 
             _stickyNotesHandler.OnStickyNotesChanged += SetStickyNotesStackVisibility;
@@ -53,6 +55,17 @@ namespace VNotes.ViewModel
             {
                 AreThereStickyNotesLeft = Visibility.Visible;
             }
+        }
+
+        private void CloseApp(object obj)
+        {
+            _ = CloseLogic();
+        }
+
+        private async Task CloseLogic()
+        {
+            await _stickyNotesHandler.SaveCurentData();
+            App.Current.Shutdown();
         }
 
         private void SpawnStickyNote(object obj)

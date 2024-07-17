@@ -16,6 +16,7 @@ namespace VNotes.Model
        
         private Random rnd = new();
         private ISave saveLoad;
+        private bool IsSaving = false;
         public StickyNotesHandler(ISave saveload) 
         {
             saveLoad = saveload;
@@ -27,6 +28,17 @@ namespace VNotes.Model
             Data = saveLoad.Load();
             GenerateStickyNotes();
         } 
+
+        public async Task SaveCurentData()
+        {
+            if (IsSaving) return;
+            IsSaving = true;
+            await Task.Run(() =>
+            {
+                saveLoad.Save(Data);
+            });
+            IsSaving = false;
+        }
 
         public void CreateStickyNote()
         {
