@@ -23,7 +23,6 @@ namespace VNotes.View
     public partial class StickyNoteView : Window
     {
         private StickyNoteVM Model;
-        private int TextAreaMinSize = 500;
         public StickyNoteView(StickyNoteVM model)
         {
             Model = model;

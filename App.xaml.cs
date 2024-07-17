@@ -16,7 +16,7 @@ namespace VNotes
         public static extern bool AllocConsole();
         protected override void OnStartup(StartupEventArgs e)
         {
-            AllocConsole();
+            //AllocConsole();
             base.OnStartup(e);
             SoundManager soundManager = new(delayInPlaySound: 80);
             BinaryFormatterSaveLoad SaveLoad = new(@$"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\VNotes");
