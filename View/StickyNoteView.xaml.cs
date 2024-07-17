@@ -23,10 +23,9 @@ namespace VNotes.View
     public partial class StickyNoteView : Window
     {
         private StickyNoteVM Model;
+        private int TextAreaMinSize = 500;
         public StickyNoteView(StickyNoteVM model)
         {
-            InkCanvas canvas = new();
-
             Model = model;
             if(new Vector2(model.NoteData.StickyPositionX, model.NoteData.StickyPositionY) != Vector2.Zero)
             {
@@ -85,6 +84,27 @@ namespace VNotes.View
             Model.PlayPencilSound();
         }
 
+        private void EditTextAreaText(object sender, TextCompositionEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (textBox == null) return;
+
+            int caretIndex = textBox.CaretIndex;
+
+            bool atEndOfText = caretIndex >= textBox.Text.Length;
+
+            if (!atEndOfText)
+            {
+                textBox.Text = textBox.Text.Remove(caretIndex, 1);
+            }
+
+            textBox.Text = textBox.Text.Insert(caretIndex, e.Text);
+
+            textBox.CaretIndex = caretIndex + 1;
+
+            e.Handled = true;
+        }
+
         private void AddDrawingStrokes(object sender, InkCanvasStrokeCollectedEventArgs e)
         {
             if (DataContext is StickyNoteVM viewModel && viewModel.NoteData != null)
@@ -101,6 +121,9 @@ namespace VNotes.View
             OldDrawing = DrawingArea.IsHitTestVisible;
             OldText = TextArea.IsHitTestVisible;
 
+            PencilBtn.Visibility = Visibility.Hidden;
+            EraserBtn.Visibility = Visibility.Hidden;
+            TextBtn.Visibility = Visibility.Hidden;
             DrawingArea.IsHitTestVisible = false;
             TextArea.IsHitTestVisible = false;
         }
@@ -109,6 +132,9 @@ namespace VNotes.View
         {
             DrawingArea.IsHitTestVisible = OldDrawing;
             TextArea.IsHitTestVisible = OldText;
+            PencilBtn.Visibility = Visibility.Visible;
+            EraserBtn.Visibility = Visibility.Visible;
+            TextBtn.Visibility = Visibility.Visible;
         }
 
         private void CrumblePaperSound(object sender, RoutedEventArgs e)
