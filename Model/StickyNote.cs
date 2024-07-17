@@ -1,10 +1,7 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Numerics;
-using System.Text.Json.Serialization;
 using System.Windows.Ink;
 using System.Runtime.Serialization;
-using System.Collections.Specialized;
 
 namespace VNotes.Model
 {
@@ -42,6 +39,9 @@ namespace VNotes.Model
                 }
             }
         }
+
+        [DataMember]
+        public bool IsLocked { get; set; } = false;
 
         [DataMember]
         public string? StickyDrawingData { get; set; }

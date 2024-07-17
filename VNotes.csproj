@@ -13,6 +13,8 @@
     <None Remove="Assets\Images\crumpled.png" />
     <None Remove="Assets\Images\eraser.png" />
     <None Remove="Assets\Images\move.png" />
+    <None Remove="Assets\Images\padlock.png" />
+    <None Remove="Assets\Images\padlockopen.png" />
     <None Remove="Assets\Images\pencil.png" />
     <None Remove="Assets\Images\StickyNote1.png" />
     <None Remove="Assets\Images\StickyNote2.png" />
@@ -34,6 +36,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Assets\Images\move.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Images\padlock.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Images\padlockopen.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Assets\Images\pencil.png">

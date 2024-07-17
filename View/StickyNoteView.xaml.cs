@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -33,6 +34,7 @@ namespace VNotes.View
                 Left = model.NoteData.StickyPositionX;
             }
             DataContext = Model;
+
             InitializeComponent();
         }
 
@@ -89,6 +91,23 @@ namespace VNotes.View
             {
                 viewModel.NoteData.StickyDrawing = DrawingArea.Strokes;
             }
+        }
+
+        bool OldDrawing = true;
+        bool OldText = false;
+        private void LockEditing(object sender, RoutedEventArgs e)
+        {
+            OldDrawing = DrawingArea.IsHitTestVisible;
+            OldText = TextArea.IsHitTestVisible;
+
+            DrawingArea.IsHitTestVisible = false;
+            TextArea.IsHitTestVisible = false;
+        }
+
+        private void UnlockEditing(object sender, RoutedEventArgs e)
+        {
+            DrawingArea.IsHitTestVisible = OldDrawing;
+            TextArea.IsHitTestVisible = OldText;
         }
     }
 }

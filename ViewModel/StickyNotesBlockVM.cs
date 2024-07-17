@@ -27,7 +27,7 @@ namespace VNotes.ViewModel
         }
 
         private StickyNotesHandler _stickyNotesHandler;
-        Random rnd = new();
+        private Random rnd = new();
 
         public event PropertyChangedEventHandler? PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName)

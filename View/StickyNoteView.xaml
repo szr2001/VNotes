@@ -28,24 +28,41 @@
                  Width="260" Height="260" Margin="0,0,15,15" Text="{Binding NoteData.StickyText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextChanged="TextAreaChanged" />
         <InkCanvas IsHitTestVisible="True" x:Name="DrawingArea" Grid.Column="0" Grid.Row="0" Background="Transparent" Width="260" Height="260" Margin="0,0,15,15" 
                    Strokes="{Binding NoteData.StickyDrawing}" StrokeCollected="UpdateStrokes"/>
-        <StackPanel x:Name="NoteOptions" Grid.Column="1" Margin="-20,25,20,20" Visibility="Hidden">
-            <Button Background="Transparent" Margin="0,0,0,5"  Width="30" Height="30" 
+        <StackPanel x:Name="NoteOptions" Grid.Column="1" Margin="-20,25,20,20" Visibility="Visible">
+            <Button Background="Transparent" Margin="0,0,0,10"  Width="30" Height="30" 
                     Template="{Binding Source={StaticResource InvisibleBtn}}" Style="{Binding Source={StaticResource ButtonStyle}}" Click="SwitchPencil">
                 <Image Source="/Assets/Images/pencil.png"/>
             </Button>
-            <Button Background="Transparent" Margin="0,0,0,5"  Width="30" Height="30" 
+            <Button Background="Transparent" Margin="-5,0,0,10"  Width="25" Height="25" 
                     Template="{Binding Source={StaticResource InvisibleBtn}}" Style="{Binding Source={StaticResource ButtonStyle}}" Click="SwitchEraser">
                 <Image Source="/Assets/Images/eraser.png"/>
             </Button>
-            <Button Background="Transparent" Margin="0,0,0,5"  Width="30" Height="30" 
+            <Button Background="Transparent" Margin="-5,0,0,10"  Width="25" Height="25" 
                     Template="{Binding Source={StaticResource InvisibleBtn}}" Style="{Binding Source={StaticResource ButtonStyle}}" Click="SwitchText">
                 <Image Source="/Assets/Images/text.png"/>
             </Button>
-            <Button Background="Transparent" Command="{Binding OnCrumbleNote}" Margin="-10,0,0,5"  Width="30" Height="30" 
+            <ToggleButton Name="ToggleLock" Background="Transparent" Margin="-5,0,0,10"  Width="20" Height="20" IsChecked="{Binding NoteData.IsLocked, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                    Template="{Binding Source={StaticResource InvisibleToggleBtn}}" Style="{Binding Source={StaticResource ToggleButtonStyle}}" Checked="LockEditing" Unchecked="UnlockEditing">
+                <Image>
+                    <Image.Style>
+                        <Style TargetType="Image">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsChecked,ElementName=ToggleLock}" Value="false">
+                                    <Setter Property="Source" Value="/Assets/Images/padlockopen.png" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding IsChecked,ElementName=ToggleLock}" Value="true">
+                                    <Setter Property="Source" Value="/Assets/Images/padlock.png" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+            </ToggleButton>
+            <Button Background="Transparent" Command="{Binding OnCrumbleNote}" Margin="-10,0,0,10"  Width="30" Height="30" 
                     Template="{Binding Source={StaticResource InvisibleBtn}}" Style="{Binding Source={StaticResource ButtonStyle}}">
                 <Image Source="/Assets/Images/crumpled.png"/>
             </Button>
-            <Button Background="Transparent" Margin="-8,90,0,5"  Width="25" Height="25" 
+            <Button Background="Transparent" Margin="-8,40,0,5"  Width="25" Height="25" 
                     Template="{Binding Source={StaticResource InvisibleBtn}}" Style="{Binding Source={StaticResource ButtonStyle}}">
                 <Image Source="/Assets/Images/move.png" MouseLeftButtonDown="MoveNote"/>
             </Button>
