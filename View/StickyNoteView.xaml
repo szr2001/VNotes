@@ -25,9 +25,9 @@
                  HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled"
                  TextWrapping="Wrap"  FontSize="33" BorderThickness="0"
                  x:Name="TextArea" Grid.Column="0" Grid.Row="0" Background="Transparent"
-                 Width="260" Height="260" Margin="0,0,15,15" Text="{Binding NoteData.StickyText}" TextChanged="TextAreaChanged" />
+                 Width="260" Height="260" Margin="0,0,15,15" Text="{Binding NoteData.StickyText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextChanged="TextAreaChanged" />
         <InkCanvas IsHitTestVisible="True" x:Name="DrawingArea" Grid.Column="0" Grid.Row="0" Background="Transparent" Width="260" Height="260" Margin="0,0,15,15" 
-                   Strokes="{Binding NoteData.StickyDrawing}"/>
+                   Strokes="{Binding NoteData.StickyDrawing}" StrokeCollected="UpdateStrokes"/>
         <StackPanel x:Name="NoteOptions" Grid.Column="1" Margin="-20,25,20,20" Visibility="Hidden">
             <Button Background="Transparent" Margin="0,0,0,5"  Width="30" Height="30" 
                     Template="{Binding Source={StaticResource InvisibleBtn}}" Style="{Binding Source={StaticResource ButtonStyle}}" Click="SwitchPencil">

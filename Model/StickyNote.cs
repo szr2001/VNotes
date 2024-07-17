@@ -4,6 +4,7 @@ using System.Numerics;
 using System.Text.Json.Serialization;
 using System.Windows.Ink;
 using System.Runtime.Serialization;
+using System.Collections.Specialized;
 
 namespace VNotes.Model
 {
@@ -11,10 +12,10 @@ namespace VNotes.Model
     public class StickyNote
     {
         [NonSerialized]
-        private StrokeCollection? _stickyDrawing;
+        private StrokeCollection? _stickyDrawing = null;
 
         [IgnoreDataMember]
-        public StrokeCollection StickyDrawingw
+        public StrokeCollection StickyDrawing
         {
             get
             {
@@ -25,11 +26,14 @@ namespace VNotes.Model
                         _stickyDrawing = new StrokeCollection(ms);
                     }
                 }
+                if(_stickyDrawing == null)
+                {
+                    _stickyDrawing = new();
+                }
                 return _stickyDrawing!;
             }
             set
             {
-                Console.WriteLine("Rawr");
                 _stickyDrawing = value;
                 using (var ms = new MemoryStream())
                 {
@@ -45,13 +49,18 @@ namespace VNotes.Model
 
         [DataMember]
         private string stickyText =
-                $@"                                
-                                
-                                
-                                
-                                
-                                
-                                ";
+                $@"                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     ";
 
         [IgnoreDataMember]
         public string StickyText 
@@ -63,7 +72,6 @@ namespace VNotes.Model
             set 
             { 
                 stickyText = value;
-                Console.WriteLine(stickyText);
             } 
         }
 

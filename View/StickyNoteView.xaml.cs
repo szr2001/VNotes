@@ -82,5 +82,13 @@ namespace VNotes.View
             if (textBox == null) return;
 
         }
+
+        private void UpdateStrokes(object sender, InkCanvasStrokeCollectedEventArgs e)
+        {
+            if (DataContext is StickyNoteVM viewModel && viewModel.NoteData != null)
+            {
+                viewModel.NoteData.StickyDrawing = DrawingArea.Strokes;
+            }
+        }
     }
 }
