@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Assets\Images\VNotesLogo.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,6 +24,7 @@
     <None Remove="Assets\Images\StickyNoteBlockNote.png" />
     <None Remove="Assets\Images\StickyNoteBlockNoteHover.png" />
     <None Remove="Assets\Images\text.png" />
+    <None Remove="Assets\Images\VNotesLogo.ico" />
     <None Remove="Assets\Sounds\paperCrumble1.mp3" />
     <None Remove="Assets\Sounds\papercrumble1.wav" />
     <None Remove="Assets\Sounds\papercrumble2.mp3" />
@@ -82,6 +84,8 @@
     <Resource Include="Assets\Images\text.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Assets\Images\VNotesLogo.ico" />
+    <Content Include="Assets\Images\VNotesLogo.ico" />
     <Content Include="Assets\Sounds\papercrumble1.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
