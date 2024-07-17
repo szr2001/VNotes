@@ -25,9 +25,10 @@
                  HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled"
                  TextWrapping="Wrap"  FontSize="33" BorderThickness="0"
                  x:Name="TextArea" Grid.Column="0" Grid.Row="0" Background="Transparent"
-                 Width="260" Height="260" Margin="0,0,15,15" Text="{Binding NoteData.StickyText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextChanged="TextAreaChanged" />
+                 Width="260" Height="260" Margin="0,0,15,15" Text="{Binding NoteData.StickyText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                 TextChanged="TextAreaChanged" />
         <InkCanvas IsHitTestVisible="True" x:Name="DrawingArea" Grid.Column="0" Grid.Row="0" Background="Transparent" Width="260" Height="260" Margin="0,0,15,15" 
-                   Strokes="{Binding NoteData.StickyDrawing}" StrokeCollected="UpdateStrokes"/>
+                   Strokes="{Binding NoteData.StickyDrawing}" StrokeCollected="AddDrawingStrokes" StrokeErased="EraseDrawingStrokes"/>
         <StackPanel x:Name="NoteOptions" Grid.Column="1" Margin="-20,25,20,20" Visibility="Visible">
             <Button Background="Transparent" Margin="0,0,0,10"  Width="30" Height="30" 
                     Template="{Binding Source={StaticResource InvisibleBtn}}" Style="{Binding Source={StaticResource ButtonStyle}}" Click="SwitchPencil">
@@ -59,7 +60,7 @@
                 </Image>
             </ToggleButton>
             <Button Background="Transparent" Command="{Binding OnCrumbleNote}" Margin="-10,0,0,10"  Width="30" Height="30" 
-                    Template="{Binding Source={StaticResource InvisibleBtn}}" Style="{Binding Source={StaticResource ButtonStyle}}">
+                    Template="{Binding Source={StaticResource InvisibleBtn}}" Style="{Binding Source={StaticResource ButtonStyle}}" Click="CrumblePaperSound">
                 <Image Source="/Assets/Images/crumpled.png"/>
             </Button>
             <Button Background="Transparent" Margin="-8,40,0,5"  Width="25" Height="25" 

@@ -18,10 +18,11 @@ namespace VNotes
         {
             AllocConsole();
             base.OnStartup(e);
+            SoundManager soundManager = new(delayInPlaySound: 80);
             BinaryFormatterSaveLoad SaveLoad = new(@$"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\VNotes");
-            StickyNotesHandler NotesHandler = new(SaveLoad);
+            StickyNotesHandler NotesHandler = new(SaveLoad, soundManager);
             
-            StickyNotesBlockVM StickyBlockVM = new(NotesHandler);
+            StickyNotesBlockVM StickyBlockVM = new(NotesHandler, soundManager);
             StickyNotesBlockView Stickyblock = new(StickyBlockVM);
 
             Stickyblock.Show();

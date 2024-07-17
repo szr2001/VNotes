@@ -3,6 +3,7 @@ using System.Numerics;
 using System.Windows;
 using System.Windows.Input;
 using VNotes.Commands;
+using VNotes.Enums;
 using VNotes.Model;
 using VNotes.View;
 
@@ -12,6 +13,7 @@ namespace VNotes.ViewModel
     {
         public ICommand OnSpawnStickyNote { get; set; }
         public ICommand OnCloseApp { get; set; }
+        public SoundManager SoundManager { get; set; }
 
         private Visibility _stickyNoteVisibility = Visibility.Visible;
         public Visibility AreThereStickyNotesLeft 
@@ -36,8 +38,18 @@ namespace VNotes.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public StickyNotesBlockVM(StickyNotesHandler stickyNotesHandler)
+        public void PlayPaperSound()
         {
+            SoundManager.PlayRandomSound
+            (
+                [SoundNames.papercrumble1, SoundNames.papercrumble2,
+                SoundNames.papercrumble3,SoundNames.papercrumble4 ]
+            );
+        }
+
+        public StickyNotesBlockVM(StickyNotesHandler stickyNotesHandler, SoundManager soundManager)
+        {
+            SoundManager = soundManager;
             OnSpawnStickyNote = new RelayCommand(SpawnStickyNote);
             OnCloseApp = new RelayCommand(CloseApp);
             _stickyNotesHandler = stickyNotesHandler;

@@ -82,14 +82,15 @@ namespace VNotes.View
         {
             var textBox = sender as TextBox;
             if (textBox == null) return;
-
+            Model.PlayPencilSound();
         }
 
-        private void UpdateStrokes(object sender, InkCanvasStrokeCollectedEventArgs e)
+        private void AddDrawingStrokes(object sender, InkCanvasStrokeCollectedEventArgs e)
         {
             if (DataContext is StickyNoteVM viewModel && viewModel.NoteData != null)
             {
                 viewModel.NoteData.StickyDrawing = DrawingArea.Strokes;
+                Model.PlayPencilSound();
             }
         }
 
@@ -108,6 +109,20 @@ namespace VNotes.View
         {
             DrawingArea.IsHitTestVisible = OldDrawing;
             TextArea.IsHitTestVisible = OldText;
+        }
+
+        private void CrumblePaperSound(object sender, RoutedEventArgs e)
+        {
+            Model.PlayPaperSound();
+        }
+
+        private void EraseDrawingStrokes(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is StickyNoteVM viewModel && viewModel.NoteData != null)
+            {
+                viewModel.NoteData.StickyDrawing = DrawingArea.Strokes;
+                Model.PlayPencilSound();
+            }
         }
     }
 }

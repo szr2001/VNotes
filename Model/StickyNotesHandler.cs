@@ -14,11 +14,13 @@ namespace VNotes.Model
         public Action<int,int>? OnStickyNotesChanged = null;
         public readonly int MaxStickyNotes = 10;
        
+        private SoundManager _soundManager;
         private Random rnd = new();
         private ISave saveLoad;
         private bool IsSaving = false;
-        public StickyNotesHandler(ISave saveload) 
+        public StickyNotesHandler(ISave saveload, SoundManager soundManager)
         {
+            _soundManager = soundManager;
             saveLoad = saveload;
             LoadData();
         }
@@ -45,7 +47,7 @@ namespace VNotes.Model
             if (Notes.Count >= MaxStickyNotes) return;
             int testrnd = rnd.Next(0, 3);
             StickyNote NoteData = new StickyNote(Vector2.Zero, "/Assets/Images/StickyNote1.png");
-            StickyNoteVM NewStickyNoteVM = new(NoteData, this);
+            StickyNoteVM NewStickyNoteVM = new(NoteData, _soundManager, this);
             switch (testrnd)
             {
                 case 0:
@@ -85,7 +87,7 @@ namespace VNotes.Model
 
             foreach(StickyNote noteData in Data.NotesData)
             {
-                StickyNoteVM NewStickyNoteVM = new(noteData, this);
+                StickyNoteVM NewStickyNoteVM = new(noteData,_soundManager, this);
                 StickyNoteView NewStickyNoteView = new(NewStickyNoteVM);
                 Notes.Add(NewStickyNoteVM.NoteData, NewStickyNoteView);
                 NewStickyNoteView.Show();

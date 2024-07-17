@@ -12,7 +12,8 @@
         Title="StickyNotesBlock" Height="249" Width="309">
     <Grid>
         <Image MouseLeftButtonDown="MoveWindow" Source="/Assets/Images/StickyNoteBlock.png" Grid.ColumnSpan="5" Grid.RowSpan="5" ></Image>
-        <Image Grid.Row="1" Visibility="{Binding AreThereStickyNotesLeft}" Grid.Column="1" Grid.ColumnSpan="1" Grid.RowSpan="3" Margin="-2" MouseLeftButtonDown="StickyNotesClick" >
+        <Image Grid.Row="1" Visibility="{Binding AreThereStickyNotesLeft}" Grid.Column="1" Grid.ColumnSpan="1" Grid.RowSpan="3" 
+               Margin="-2" MouseLeftButtonDown="StickyNotesClick" MouseEnter="PlaySound">
             <Image.Style>
                 <Style TargetType="Image">
                     <Style.Triggers>
